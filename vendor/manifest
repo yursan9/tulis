@@ -1,0 +1,37 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/BurntSushi/toml",
+			"repository": "https://github.com/BurntSushi/toml",
+			"vcs": "git",
+			"revision": "b26d9c308763d68093482582cea63d69be07a0f0",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/gosimple/slug",
+			"repository": "https://github.com/gosimple/slug",
+			"vcs": "git",
+			"revision": "dfb5bc66af5ea2fadd6bd1a02ea9eca9bc25f14f",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/rainycape/unidecode",
+			"repository": "https://github.com/rainycape/unidecode",
+			"vcs": "git",
+			"revision": "cb7f23ec59bec0d61b19c56cd88cee3d0cc1870c",
+			"branch": "master",
+			"notests": true
+		},
+		{
+			"importpath": "github.com/russross/blackfriday",
+			"repository": "https://github.com/russross/blackfriday",
+			"vcs": "git",
+			"revision": "0ba0f2b6ed7c475a92e4df8641825cb7a11d1fa3",
+			"branch": "master",
+			"notests": true
+		}
+	]
+}
