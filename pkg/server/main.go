@@ -67,47 +67,6 @@ func init() {
 	all = post.GetPosts(postDir)
 }
 
-type Options struct {
-	Port        string
-	Base        string
-	TemplateDir string
-	PostDir     string
-	StaticDir   string
-	Relative    bool
-	MaxPost     uint8
-}
-
-func applyConfig(opt *Options) {
-	if len(opt.Port) != 0 {
-		port = opt.Port
-	}
-	if len(opt.TemplateDir) != 0 {
-		templateDir = opt.TemplateDir
-	}
-	if len(opt.PostDir) != 0 {
-		postDir = opt.PostDir
-	}
-	if len(opt.StaticDir) != 0 {
-		staticDir = opt.StaticDir
-	}
-	if opt.MaxPost != 0 {
-		maxPost = opt.MaxPost
-	}
-	if len(opt.Base) != 0 {
-		base = opt.Base
-	}
-}
-
-// Make new server
-func New(opt *Options) *http.Server {
-	applyConfig(opt)
-	r := newRouter()
-	return &http.Server{
-		Addr:    port,
-		Handler: r,
-	}
-}
-
 func newRouter() *httprouter.Router {
 	r := httprouter.New()
 	r.GET("/", Index)
@@ -118,4 +77,13 @@ func newRouter() *httprouter.Router {
 	r.ServeFiles("/static/*filepath", http.Dir(staticDir))
 
 	return r
+}
+
+// Make new server
+func New() *http.Server {
+	r := newRouter()
+	return &http.Server{
+		Addr:    port,
+		Handler: r,
+	}
 }

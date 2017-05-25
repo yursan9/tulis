@@ -13,9 +13,8 @@ import (
 func main() {
 	stop := make(chan os.Signal)
 	signal.Notify(stop, os.Interrupt)
-	opt := &server.Options{}
 
-	app := server.New(opt)
+	app := server.New()
 	go func() {
 		log.Println("Listening to port http://127.0.0.1" + app.Addr)
 		log.Fatal(app.ListenAndServe())
