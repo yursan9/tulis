@@ -9,12 +9,20 @@ import (
 
 // Index handle request for our index page
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprintf(w, "Our Home Page", all)
+	data, err := newPageData(1)
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	t["index"].Execute(w, data)
 }
 
 // ReadPost handle request for reading our posts
 func ReadPost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "Post: %s", ps.ByName("title"))
+	data, err := newPostData(ps.ByName("title"))
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	t["post"].Execute(w, data)
 }
 
 // Page handle per page view, actually index is an alias to page 1
