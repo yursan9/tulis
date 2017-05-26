@@ -23,6 +23,8 @@ func init() {
 			filepath.Join(templateDir, "index.html"))),
 		"post": template.Must(template.New("post.html").Funcs(funcMaps).ParseFiles(
 			filepath.Join(templateDir, "post.html"))),
+		"tag": template.Must(template.New("tag.html").Funcs(funcMaps).ParseFiles(
+			filepath.Join(templateDir, "tag.html"))),
 	}
 }
 
