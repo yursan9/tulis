@@ -2,6 +2,7 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/julienschmidt/httprouter"
@@ -13,7 +14,10 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	t["index"].Execute(w, data)
+	err = t["index"].Execute(w, data)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // ReadPost handle request for reading our posts
@@ -22,7 +26,10 @@ func ReadPost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	t["post"].Execute(w, data)
+	err = t["post"].Execute(w, data)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // Page handle per page view, actually index is an alias to page 1
