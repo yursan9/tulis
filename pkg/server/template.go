@@ -15,8 +15,8 @@ var (
 
 func init() {
 	funcMaps = template.FuncMap{
-		"inc": func(i int) int { return i + 1 },
-		"dec": func(i int) int { return i - 1 },
+		"inc": func(i uint8) uint8 { return i + 1 },
+		"dec": func(i uint8) uint8 { return i - 1 },
 	}
 	t = map[string]*template.Template{
 		"index": template.Must(template.New("index.html").Funcs(funcMaps).ParseFiles(
