@@ -80,9 +80,10 @@ func newPostData(slug string) (*PostData, error) {
 
 // ByTagData contain struct for Search By Tag template
 type ByTagData struct {
-	PageNow  uint8
-	PageMax  uint8
-	Posts    []*post.Post
+	PageNow uint8
+	PageMax uint8
+	Tag     string
+	Posts   []*post.Post
 }
 
 func newByTagData(n uint8, tag string) *ByTagData {
