@@ -99,6 +99,11 @@ OUTER:
 			}
 		}
 	}
+	if len(pd.Posts) == 0 {
+		pd.PageNow = 1
+		pd.PageMax = 1
+		return pd
+	}
 
 	// Initialize Page number
 	pd.PageNow = n
