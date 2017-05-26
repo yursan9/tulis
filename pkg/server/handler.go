@@ -7,7 +7,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
-// Index handle request for our index page
+// Index handle request for our index page, it's an alias for Page 1
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	data, err := newPageData(1)
 	if err != nil {

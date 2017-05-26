@@ -79,7 +79,7 @@ func newRouter() *httprouter.Router {
 	return r
 }
 
-// Make new server
+// New return our app's server
 func New() *http.Server {
 	r := newRouter()
 	return &http.Server{

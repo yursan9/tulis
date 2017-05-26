@@ -59,7 +59,7 @@ func newMeta(t string) (*Meta, error) {
 	return m, nil
 }
 
-//newPost generate Post from fn
+//New generate Post from fn
 //fn must be valid filepath
 func New(fn string) (*Post, error) {
 	b, err := ioutil.ReadFile(fn)
@@ -70,9 +70,8 @@ func New(fn string) (*Post, error) {
 	//Check if document start with valid token
 	if !bytes.HasPrefix(b, []byte("---\n")) {
 		return nil, errMissingFrontMatter
-	} else {
-		b = bytes.TrimPrefix(b, []byte("---\n"))
 	}
+	b = bytes.TrimPrefix(b, []byte("---\n"))
 
 	//Split b to array, array[0] is front matter
 	//array[1] is the rest of text (post's body)

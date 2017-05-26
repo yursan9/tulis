@@ -21,6 +21,7 @@ func init() {
 	}
 }
 
+// PageData contain struct for Page and Index template
 type PageData struct {
 	PageNow  uint8
 	PageNext uint8
@@ -55,6 +56,7 @@ func newPageData(n uint8) (*PageData, error) {
 	return pd, nil
 }
 
+// PostData contain struct for Post template
 type PostData struct {
 	*post.Post
 	Next *post.Post
@@ -78,3 +80,4 @@ func newPostData(slug string) (*PostData, error) {
 	return nil, fmt.Errorf("Can't find post with given slug: %s", slug)
 }
 
+// ByTagData contain struct for Search By Tag template
