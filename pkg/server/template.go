@@ -9,15 +9,20 @@ import (
 )
 
 var (
-	t map[string]*template.Template
+	t        map[string]*template.Template
+	funcMaps template.FuncMap
 )
 
 func init() {
+	funcMaps = template.FuncMap{
+		"inc": func(i int) int { return i + 1 },
+		"dec": func(i int) int { return i - 1 },
+	}
 	t = map[string]*template.Template{
-		"index": template.Must(template.ParseFiles(filepath.Join(
-			templateDir, "index.html"))),
-		"post": template.Must(template.ParseFiles(filepath.Join(
-			templateDir, "post.html"))),
+		"index": template.Must(template.New("index.html").Funcs(funcMaps).ParseFiles(
+			filepath.Join(templateDir, "index.html"))),
+		"post": template.Must(template.New("post.html").Funcs(funcMaps).ParseFiles(
+			filepath.Join(templateDir, "post.html"))),
 	}
 }
 
