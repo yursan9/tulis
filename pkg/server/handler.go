@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -34,7 +35,18 @@ func ReadPost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 // Page handle per page view, actually index is an alias to page 1
 func Page(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "Halaman: %d", ps.ByName("page"))
+	p, err := strconv.ParseUint(ps.ByName("page"), 10, 8)
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	data, err := newPageData(uint8(p))
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	err = t["index"].Execute(w, data)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // About handle request to serve an about page
