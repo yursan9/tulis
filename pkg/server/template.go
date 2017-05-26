@@ -35,7 +35,7 @@ type PageData struct {
 
 func newPageData(n uint8) (*PageData, error) {
 	pd := new(PageData)
-	
+
 	// Initialize page number
 	pd.PageMax = uint8(len(all))/maxPost + 1
 	if n < 1 || n > pd.PageMax {
@@ -99,3 +99,4 @@ OUTER:
 	}
 	return pd
 }
+
