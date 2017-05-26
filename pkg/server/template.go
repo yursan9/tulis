@@ -88,7 +88,8 @@ type ByTagData struct {
 
 func newByTagData(n uint8, tag string) *ByTagData {
 	pd := new(ByTagData)
-	pd.PageNow = n
+	pd.Tag = tag
+	// Search post with given tag
 OUTER:
 	for _, p := range all {
 		for _, t := range p.Tag {
@@ -98,6 +99,19 @@ OUTER:
 			}
 		}
 	}
+
+	// Initialize Page number
+	pd.PageNow = n
+	pd.PageMax = uint8(len(pd.Posts))/maxPost + 1
+
+	// Initialize array of posts
+	s := maxPost * (n - 1)
+	pd.Posts = pd.Posts[s:]
+	f := maxPost * n
+	if f < uint8(len(pd.Posts)) {
+		pd.Posts = pd.Posts[s:f]
+	}
+
 	return pd
 }
 
