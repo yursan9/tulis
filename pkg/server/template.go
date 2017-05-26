@@ -79,3 +79,23 @@ func newPostData(slug string) (*PostData, error) {
 }
 
 // ByTagData contain struct for Search By Tag template
+type ByTagData struct {
+	PageNow  uint8
+	PageMax  uint8
+	Posts    []*post.Post
+}
+
+func newByTagData(n uint8, tag string) *ByTagData {
+	pd := new(ByTagData)
+	pd.PageNow = n
+OUTER:
+	for _, p := range all {
+		for _, t := range p.Tag {
+			if tag == t {
+				pd.Posts = append(pd.Posts, p)
+				continue OUTER
+			}
+		}
+	}
+	return pd
+}
