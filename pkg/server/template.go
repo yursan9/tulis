@@ -28,28 +28,21 @@ func init() {
 
 // PageData contain struct for Page and Index template
 type PageData struct {
-	PageNow  uint8
-	PageNext uint8
-	PagePrev uint8
-	Posts    []*post.Post
+	PageNow uint8
+	PageMax uint8
+	Posts   []*post.Post
 }
 
 func newPageData(n uint8) (*PageData, error) {
-	maxPage := uint8(len(all))/maxPost + 1
-	if n < 1 || n > maxPage {
+	pd := new(PageData)
+	
+	// Initialize page number
+	pd.PageMax = uint8(len(all))/maxPost + 1
+	if n < 1 || n > pd.PageMax {
 		return nil, fmt.Errorf("There is no page %d", n)
 	}
-
-	pd := new(PageData)
-	// Initialize page number
 	pd.PageNow = n
-	if n > 1 {
-		pd.PagePrev = n - 1
-	}
-	if n < maxPage {
-		pd.PageNext = n + 1
-	}
-	
+
 	// Initialize array of posts
 	s := maxPost * (n - 1)
 	pd.Posts = all[s:]
