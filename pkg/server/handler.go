@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -51,7 +50,10 @@ func Page(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 // About handle request to serve an about page
 func About(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprintf(w, "About Me!")
+	err := t.ExecuteTemplate(w, "about", "")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 // ByTag handle request to search posts based on its tag.
