@@ -63,7 +63,7 @@ func init() {
 	} else {
 		maxPost = uint8(n)
 	}
-
+	// List of Posts
 	all = post.GetPosts(postDir)
 }
 

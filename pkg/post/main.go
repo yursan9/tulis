@@ -23,7 +23,7 @@ func GetPosts(postDir string) []*Post {
 
 		all = append(all, p)
 	}
-	// Sort the Post in descending order
+	// Sort the Post in descending order by the published date
 	sort.Slice(all, func(i, j int) bool {
 		return all[i].Meta.Date.Time.After(all[j].Meta.Date.Time)
 	})
