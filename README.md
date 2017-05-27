@@ -44,16 +44,15 @@ export TULIS_PORT=":1234"
 tulis
 ```
 
-|Option         | Description   					|
-|---------------|-------------------------------------------------------|
-| PORT          | Port number 						|
-| SITENAME      | Website name in browser          			|
-| BASEDIR       | Base directory for your site 				|
-| POSTDIR       | Path to directory of your blog's posts 		|
-| TEMPLDIR      | Path to directory of your blog's templates 		|
-| STATICDIR     | Path to directory of your blog's static files		|
-| RELATIVE      | If true make *DIR relative to BASEDIR 		|
-| MAXPOSTS	| Number of max posts in one page 			|
+| Option        | Description                                   | Type         |
+|---------------|-----------------------------------------------|--------------|
+| PORT          | Port number                                   | string       |
+| BASEDIR       | Base directory for your site                  | string       |
+| POSTDIR       | Path to directory of your blog's posts        | string       |
+| TEMPLDIR      | Path to directory of your blog's templates    | string       |
+| STATICDIR     | Path to directory of your blog's static files | string       |
+| RELATIVE      | If true make *DIR relative to BASEDIR         | bool         |
+| MAXPOSTS      | Number of max posts in one page               | uint         |
 
 ## Thanks to ##
 + julienschmidt's [httprouter](github.com/julienschmidt/httprouter)
