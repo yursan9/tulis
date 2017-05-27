@@ -1,0 +1,26 @@
+{{ define "post" }}
+{{ template "header" }}
+<a href="/"><-Back to Home</a>
+<section>
+	<h1>{{ .Post.Meta.Title }}</h1>
+	<h6>{{ .Post.Meta.Date }}</h6>
+	<h3>{{ .Post.Meta.Author }}</h3>
+</section>
+<div>
+	{{ .Post.Content }}
+</div>
+<section>
+{{ range .Post.Meta.Tag }}
+	<a href="/tag/{{.}}/1">{{.}}</a>, 
+{{ end }}
+</section>
+<section>
+{{ if .Prev }}
+	<a href="/post/{{ .Prev.Slug }}"><<{{ .Prev.Meta.Title }}</a>
+{{ end }}
+{{ if .Next }}
+	<a href="/post/{{ .Next.Slug }}">{{ .Next.Meta.Title }}>></a>
+{{ end }}
+</section>
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "index" }}
+{{ template "header" }}
+<div>
+	<h1>Title</h1>
+	<h5>Subtitle</h5>
+</div>
+<div>
+	<section>
+	{{ range .Posts }}
+		<a href="/post/{{.Slug}}">
+			<h1>{{.Meta.Title}}</h1>
+		</a>
+		{{ .Meta.Date }}
+		<h3 class="subtitle">{{ .Meta.Description }}</h3>
+		<hr/>
+	{{ else }}
+		<h3>Maaf, saya belum menulis sesuatu.</h3>
+		<hr/>
+	{{ end }}
+	</section>
+	<section>
+		<nav>
+			<ul>
+			{{ if gt .PageNow 1 }}
+				<li><a href="/page/{{ dec .PageNow }}">Prev</a></li>
+			{{ end }}
+				<li><a href="#">{{.PageNow}}</a></li>
+			{{ if lt .PageNow .PageMax }}
+				<li><a href="/page/{{ inc .PageNow }}">Next</a></li>
+			{{ end }}
+			</ul>
+		</nav>
+	</section>
+</div>
+{{ template "footer" }}
+{{ end }}
