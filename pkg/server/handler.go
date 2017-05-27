@@ -15,7 +15,7 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	err = t["index"].Execute(w, data)
+	err = t.ExecuteTemplate(w, "index", data)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,7 +27,7 @@ func ReadPost(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	err = t["post"].Execute(w, data)
+	err = t.ExecuteTemplate(w, "post", data)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,7 +43,7 @@ func Page(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	err = t["index"].Execute(w, data)
+	err = t.ExecuteTemplate(w, "index", data)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -64,7 +64,7 @@ func ByTag(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if err != nil {
 		http.NotFound(w, r)
 	}
-	err = t["tag"].Execute(w, data)
+	err = t.ExecuteTemplate(w, "tag", data)
 	if err != nil {
 		log.Fatal(err)
 	}
