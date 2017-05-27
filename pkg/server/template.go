@@ -15,14 +15,16 @@ var (
 
 func init() {
 	funcMaps = template.FuncMap{
-		"inc": func(i int) int { return i + 1 },
-		"dec": func(i int) int { return i - 1 },
+		"inc": func(i uint8) uint8 { return i + 1 },
+		"dec": func(i uint8) uint8 { return i - 1 },
 	}
 	t = map[string]*template.Template{
 		"index": template.Must(template.New("index.html").Funcs(funcMaps).ParseFiles(
 			filepath.Join(templateDir, "index.html"))),
 		"post": template.Must(template.New("post.html").Funcs(funcMaps).ParseFiles(
 			filepath.Join(templateDir, "post.html"))),
+		"tag": template.Must(template.New("tag.html").Funcs(funcMaps).ParseFiles(
+			filepath.Join(templateDir, "tag.html"))),
 	}
 }
 
@@ -35,7 +37,7 @@ type PageData struct {
 
 func newPageData(n uint8) (*PageData, error) {
 	pd := new(PageData)
-	
+
 	// Initialize page number
 	pd.PageMax = uint8(len(all))/maxPost + 1
 	if n < 1 || n > pd.PageMax {
@@ -79,3 +81,44 @@ func newPostData(slug string) (*PostData, error) {
 }
 
 // ByTagData contain struct for Search By Tag template
+type ByTagData struct {
+	PageNow uint8
+	PageMax uint8
+	Tag     string
+	Posts   []*post.Post
+}
+
+func newByTagData(n uint8, tag string) *ByTagData {
+	pd := new(ByTagData)
+	pd.Tag = tag
+	// Search post with given tag
+OUTER:
+	for _, p := range all {
+		for _, t := range p.Tag {
+			if tag == t {
+				pd.Posts = append(pd.Posts, p)
+				continue OUTER
+			}
+		}
+	}
+	if len(pd.Posts) == 0 {
+		pd.PageNow = 1
+		pd.PageMax = 1
+		return pd
+	}
+
+	// Initialize Page number
+	pd.PageNow = n
+	pd.PageMax = uint8(len(pd.Posts))/maxPost + 1
+
+	// Initialize array of posts
+	s := maxPost * (n - 1)
+	pd.Posts = pd.Posts[s:]
+	f := maxPost * n
+	if f < uint8(len(pd.Posts)) {
+		pd.Posts = pd.Posts[s:f]
+	}
+
+	return pd
+}
+

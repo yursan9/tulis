@@ -73,7 +73,7 @@ func newRouter() *httprouter.Router {
 	r.GET("/page/:page", Page)
 	r.GET("/post/:title", ReadPost)
 	r.GET("/about", About)
-	r.GET("/tag/:name", ByTag)
+	r.GET("/tag/:name/:page", ByTag)
 	r.ServeFiles("/static/*filepath", http.Dir(staticDir))
 
 	return r

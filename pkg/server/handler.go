@@ -56,5 +56,17 @@ func About(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 // ByTag handle request to search posts based on its tag.
 func ByTag(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
-	fmt.Fprintf(w, "Search by tag: %s", ps.ByName("name"))
+	p, err := strconv.ParseUint(ps.ByName("page"), 10, 8)
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	data := newByTagData(uint8(p), ps.ByName("name"))
+	if err != nil {
+		http.NotFound(w, r)
+	}
+	err = t["tag"].Execute(w, data)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
+
