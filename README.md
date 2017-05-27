@@ -57,3 +57,5 @@ tulis
 ## Thanks to ##
 + julienschmidt's [httprouter](github.com/julienschmidt/httprouter)
 + russross's [blackfriday](github.com/russross/blackfriday)
++ BurntSushi's [toml](https://github.com/BurntSushi/toml)
++ gosimple's [slug](https://github.com/gosimple/slug)
