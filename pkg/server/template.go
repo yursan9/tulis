@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"html/template"
+	"math"
 	"path/filepath"
 
 	"github.com/yursan9/tulis/pkg/post"
@@ -35,7 +36,7 @@ func newPageData(n uint8) (*PageData, error) {
 	pd := new(PageData)
 
 	// Initialize page number
-	pd.PageMax = uint8(len(all))/maxPost + 1
+	pd.PageMax = uint8(math.Ceil(float64(len(all)) / float64(maxPost)))
 	if n < 1 || n > pd.PageMax {
 		return nil, fmt.Errorf("There is no page %d", n)
 	}
@@ -93,6 +94,7 @@ OUTER:
 		for _, t := range p.Tag {
 			if tag == t {
 				pd.Posts = append(pd.Posts, p)
+				// Stop inner loop and continue outer loop
 				continue OUTER
 			}
 		}
@@ -105,7 +107,7 @@ OUTER:
 
 	// Initialize Page number
 	pd.PageNow = n
-	pd.PageMax = uint8(len(pd.Posts))/maxPost + 1
+	pd.PageMax = uint8(math.Ceil(float64(len(all)) / float64(maxPost)))
 
 	// Initialize array of posts
 	s := maxPost * (n - 1)
