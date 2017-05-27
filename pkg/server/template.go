@@ -9,23 +9,19 @@ import (
 )
 
 var (
-	t        map[string]*template.Template
+	t        *template.Template
 	funcMaps template.FuncMap
 )
 
 func init() {
+	// Define custom filter for template
 	funcMaps = template.FuncMap{
 		"inc": func(i uint8) uint8 { return i + 1 },
 		"dec": func(i uint8) uint8 { return i - 1 },
 	}
-	t = map[string]*template.Template{
-		"index": template.Must(template.New("index.html").Funcs(funcMaps).ParseFiles(
-			filepath.Join(templateDir, "index.html"))),
-		"post": template.Must(template.New("post.html").Funcs(funcMaps).ParseFiles(
-			filepath.Join(templateDir, "post.html"))),
-		"tag": template.Must(template.New("tag.html").Funcs(funcMaps).ParseFiles(
-			filepath.Join(templateDir, "tag.html"))),
-	}
+	// Initialize map of template
+	t = template.New("").Funcs(funcMaps)
+	template.Must(t.ParseGlob(filepath.Join(templateDir, "*")))
 }
 
 // PageData contain struct for Page and Index template
