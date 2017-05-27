@@ -11,6 +11,17 @@ How can I install this?
 go get -u github.com/yursan9/tulis
 ```
 
+## Run the Program ##
+
+If you already configured your GOPATH and PATH to GOPATH/bin, you can run the
+program like this:
+
+```shell
+tulis
+```
+
+And you can open `localhost:port` in your browser (Port is default to 8080).
+
 ## Configuration ##
 
 Because it's originally made to power up my simple blog, there isn't many thing
