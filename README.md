@@ -22,6 +22,16 @@ tulis
 
 And you can open `localhost:port` in your browser (Port is default to 8080).
 
+## Run the Example ##
+
+If you want to see how the application work, you can `cd` to the directory
+and execute `go run main.go`
+
+```shell
+cd $GOPATH/src/github.com/yursan9/tulis
+TULIS_BASE="example" TULIS_RELATIVE="true" go run main.go 
+```
+
 ## Configuration ##
 
 Because it's originally made to power up my simple blog, there isn't many thing
