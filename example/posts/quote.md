@@ -1,7 +1,7 @@
 ---
 title = "War Quote"
-author = "Yurizal Susanto"
-description = "Entah kenapa kutipan orang lain bisa bikin kita semangat."
+author = "Author"
+description = "Quote of the old."
 date = "2002-12-09"
 tag = ["Me", "Quote"]
 ---

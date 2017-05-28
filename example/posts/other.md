@@ -1,13 +1,13 @@
 ---
-title = "Me me me"
-author = "Yurizal Susanto"
-description = "Tentang saya dan orang lain"
+title = "Me"
+author = "Author"
+description = "About me."
 date = "2002-12-09"
 tag = ["Me"]
 ---
-# Terkadang...
+# Sometime
 
-Aku mulai berpikir
+I start to think...
 
 > To be
 >
@@ -15,7 +15,7 @@ Aku mulai berpikir
 >
 > - Some random guys in internet
 
-Bahasa Pemrograman:
+Programming Language:
 
 - Golang
 
@@ -23,8 +23,8 @@ Bahasa Pemrograman:
 
 - C/C++
 
-Hobi:
+Hobby:
 
-1. Tidur
+1. Sleep
 
-2. Makan
+2. Eat

@@ -1,19 +1,21 @@
 ---
 title = "Programming Example"
-author = "Yurizal Susanto"
-description = "Secret of Programming"
-date = "2017-12-09"
+author = "Author"
+description = "Secret of Programming..."
+date = "2012-02-02"
 tag = ["code", "python", "c"]
 ---
 # Programming
 It's kinda frustrating actually
 
-> Hello To You
-> 
-> All
+| Ext | Language |
+|-----|----------|
+| py  | Python   |
+| cpp | C++      |
+| md  | Markdown |
 
-```python
-import numpy as np
-a = np.range(5)
-print(a)
-```
+1. OOP
+    - Java
+    - C#
+2. Functional
+    - Haskell

@@ -1,11 +1,11 @@
 ---
 title = "Code Example"
-author = "Yurizal Susanto"
+author = "Author"
 description = "Try to code the world!"
 date = "2017-12-09"
 tag = ["code", "gopkg", "c"]
 ---
-# Kode-kode
+# Codes
 
 Python3 Code:
 ```python

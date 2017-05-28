@@ -1,13 +1,13 @@
 ---
 title = "Hello World"
-author = "Yurizal Susanto"
+author = "Author"
 description = "I'll be there!"
 date = "2016-08-19"
 tag = ["hello", "world"]
 ---
-# Selamat Pagi
+# Good Day World!
 
-Kami disini untuk anda semua!
+Today, we are talking about Cat.
 
 Cat
 : Fluffy animal everyone likes
