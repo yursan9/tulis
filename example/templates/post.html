@@ -3,7 +3,7 @@
 <a href="/"><-Back to Home</a>
 <section>
 	<h1>{{ .Post.Meta.Title }}</h1>
-	<h6>{{ .Post.Meta.Date }}</h6>
+	<h6>{{ .Post.Meta.Date.Format "January 2, 2006" }}</h6>
 	<h3>{{ .Post.Meta.Author }}</h3>
 </section>
 <div>

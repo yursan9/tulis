@@ -10,7 +10,7 @@
 		<a href="/post/{{.Slug}}">
 			<h1>{{.Meta.Title}}</h1>
 		</a>
-		{{ .Meta.Date }}
+		{{ .Meta.Date.Format "January 2, 2006" }}
 		<h3 class="subtitle">{{ .Meta.Description }}</h3>
 		<hr/>
 	{{ else }}
