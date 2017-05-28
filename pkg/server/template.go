@@ -107,7 +107,7 @@ OUTER:
 
 	// Initialize Page number
 	pd.PageNow = n
-	pd.PageMax = uint8(math.Ceil(float64(len(all)) / float64(maxPost)))
+	pd.PageMax = uint8(math.Ceil(float64(len(pd.Posts)) / float64(maxPost)))
 
 	// Initialize array of posts
 	s := maxPost * (n - 1)
