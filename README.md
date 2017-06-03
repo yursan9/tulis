@@ -3,6 +3,10 @@ Tulis
 
 Tulis is a live markdown blog from idiot for everyone
 
+> P.S Building blogging platform is hard.
+> In the end I only use this for few weeks.
+> I guess this will be testimony how I learn Golang.
+
 ## Installation ##
 
 How can I install this?
