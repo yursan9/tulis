@@ -3,7 +3,11 @@
 <a href="/"><-Back to Home</a>
 <div>
 	<h1>About Me!</h1>
-	<p>Lorem Ipsum...</p>
+	<h5>{{ .Meta.Author }}</h5>
+	<p>{{ .Meta.Description }}</p>
+	<article>
+		{{ .Content }}
+	</article>
 </div>
 {{ template "footer" }}
 {{ end }}

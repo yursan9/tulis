@@ -50,7 +50,8 @@ func Page(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 // About handle request to serve an about page
 func About(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	err := t.ExecuteTemplate(w, "about", "")
+	data := newAboutData()
+	err := t.ExecuteTemplate(w, "about", data)
 	if err != nil {
 		log.Fatal(err)
 	}

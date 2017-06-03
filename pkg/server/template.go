@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"math"
 	"path/filepath"
 
@@ -116,6 +117,21 @@ OUTER:
 	if f < uint8(len(pd.Posts)) {
 		pd.Posts = pd.Posts[s:f]
 	}
+
+	return pd
+}
+
+type AboutData struct {
+	*post.Post
+}
+
+func newAboutData() *AboutData {
+	pd := new(AboutData)
+	p, err := post.New(filepath.Join(postDir, "about"))
+	if err != nil {
+		log.Println("No About Page data")
+	}
+	pd.Post = p
 
 	return pd
 }
