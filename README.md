@@ -58,6 +58,16 @@ tulis
 | RELATIVE      | If true make *DIR relative to BASEDIR         | bool     |
 | MAXPOSTS      | Number of max posts in one page               | uint     |
 
+| Option    | Default     |
+|-----------|-------------|
+| PORT      | ":8080"     |
+| BASEDIR   | $PWD        |
+| POSTDIR   | "posts"     |
+| TEMPLDIR  | "templates" |
+| STATICDIR | "static"    |
+| RELATIVE  | true        |
+| MAXPOSTS  | 5           |
+
 ## Thanks to ##
 + julienschmidt's [httprouter](github.com/julienschmidt/httprouter)
 + russross's [blackfriday](github.com/russross/blackfriday)
